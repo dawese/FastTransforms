@@ -41,13 +41,14 @@ int main(void) {
         printf("%1.2e  ", vecnorm_2arg(A, B, N, M)/vecnorm_1arg(B, N, M));
         printf("%1.2e  ", vecnormInf_2arg(A, B, N, M)/vecnormInf_1arg(B, N, M));
 
-        execute_sph_hi2lo_SSE(RP, A, Ac, M);
+        execute_sph_hi2lo_AVX(RP, A, Ac, M);
         execute_sph_lo2hi_SSE(RP, A, Ac, M);
 
         printf("%1.2e  ", vecnorm_2arg(A, B, N, M)/vecnorm_1arg(B, N, M));
         printf("%1.2e  ", vecnormInf_2arg(A, B, N, M)/vecnormInf_1arg(B, N, M));
 
-        execute_sph_hi2lo_AVX(RP, A, Ac, M);
+
+        execute_sph_hi2lo_SSE(RP, A, Ac, M);
         execute_sph_lo2hi_AVX(RP, A, Ac, M);
 
         printf("%1.2e  ", vecnorm_2arg(A, B, N, M)/vecnorm_1arg(B, N, M));
